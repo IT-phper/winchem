@@ -43,16 +43,23 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+        'settings' => [
+            'class' => 'pheme\settings\components\Settings'
+        ],
     ],
     'params' => $params,
+    'modules' => [
+        'settings' => [
+            'class' => 'pheme\settings\Module',
+            'sourceLanguage' => 'en'
+        ],
+    ],
 ];
 
 if (YII_ENV_DEV) {
