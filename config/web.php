@@ -11,6 +11,7 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'name' => '中万恩科技管理后台',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -52,12 +53,23 @@ $config = [
         'settings' => [
             'class' => 'pheme\settings\components\Settings'
         ],
+//        'view' => [
+//            'theme' => [
+//                'pathMap' => [
+//                   '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+//                ],
+//            ],
+//        ],
     ],
     'params' => $params,
     'modules' => [
         'settings' => [
             'class' => 'pheme\settings\Module',
             'sourceLanguage' => 'en'
+        ],
+        'redactor' => [
+            'class' => 'yii\redactor\RedactorModule',
+            'imageAllowExtensions'=>['jpg','png','gif']
         ],
     ],
 ];
