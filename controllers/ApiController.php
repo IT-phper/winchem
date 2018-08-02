@@ -7,6 +7,8 @@ use Yii;
 use yii\filters\Cors;
 use yii\helpers\ArrayHelper;
 use app\models\Picture;
+use app\models\Contact;
+use app\models\Articles;
 
 /*
  *  企业简介
@@ -29,9 +31,29 @@ use app\models\Picture;
  * 传入参数  sub_type 1是资质图片  2是专利  3是认证  
  * eg: /api/company-honor-from-subtype?subtype=2
  * 
- * 
  * 经营理念
- *  http://www.winchem.com/api/company-idea
+ *  /api/company-idea
+ * 
+ * 联系我们
+ *  /api/contact
+ * 返回数据  initial 首字母 zx的代表是直辖市
+ * 
+ * 企业动态
+ * /api/trends
+ * 传入参数  page  页码
+ * 返回数据
+ * page 页码  data该页码的数据  total 总页码
+ * 
+ * 
+ * 行业资讯
+ * /api/information
+ * 传入参数  page  页码
+ * 返回数据
+ * page 页码  data该页码的数据  total 总页码
+ * 
+ * 企业动态或者行业资讯的详情
+ * /api/articles-detail
+ * 传入参数 id id在接口/api/information与/api/trends中有返回数据，可以获取到
  */
 
 class ApiController extends Controller
@@ -120,6 +142,37 @@ class ApiController extends Controller
         $request = Yii::$app->request;
         $subtype = $request->get('subtype',1);
         $data = Picture::honor1($subtype);
+        return $this->ajaxMessage(0, 'success',$data);
+    }
+    
+    //联系我们
+    public function actionContact(){
+        return $this->ajaxMessage(0, 'success', Contact::data());
+    }
+    
+    //企业动态
+    public function actionTrends(){
+        $request = Yii::$app->request;
+        $page = $request->get('page',1);
+        $limit = 5;
+        $data = Articles::Trends($page,$limit);
+        return $this->ajaxMessage(0, 'success',$data);
+    }
+    
+    //行业资讯
+    public function actionInformation(){
+        $request = Yii::$app->request;
+        $page = $request->get('page',1);
+        $limit = 5;
+        $data = Articles::Information($page,$limit);
+        return $this->ajaxMessage(0, 'success',$data);
+    }
+    
+    //获取企业动态或者行业资讯的文章详细
+    public function actionArticlesDetail(){   
+        $request = Yii::$app->request;
+        $id = $request->get('id',1);
+        $data = Articles::detail($id);
         return $this->ajaxMessage(0, 'success',$data);
     }
 }

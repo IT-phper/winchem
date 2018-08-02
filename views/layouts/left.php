@@ -83,20 +83,13 @@
                             ['label' => '经营理念', 'icon' => 'exclamation', 'url' => ['/company/idea'],],
                         ],
                     ],
-                    [
-                        'label' => '新闻动态',
-                        'icon' => 'map',
-                        'url' => '#',
-                        'items' => [
-                            ['label' => '企业最新动态', 'icon' => 'cloud', 'url' => ['/gii'],],
-                            ['label' => '行业资讯', 'icon' => 'maxcdn', 'url' => ['/debug'],],
-                        ],
-                    ],
+                    ['label' => '新闻动态', 'icon' => 'cloud', 'url' => ['/articles'],],
                     [
                         'label' => '产品系列',
                         'icon' => 'map',
                         'url' => '#',
                         'items' => [
+                            ['label' => '产品种类', 'icon' => 'cloud', 'url' => ['/class'],],
                             ['label' => '洗碗机', 'icon' => 'cloud', 'url' => ['/gii'],],
                             ['label' => 'S6/S7分配器', 'icon' => 'maxcdn', 'url' => ['/debug'],],
                             ['label' => '客房类清洁剂', 'icon' => 'maxcdn', 'url' => ['/debug'],],
@@ -123,7 +116,7 @@
                             ['label' => '经典案例', 'icon' => 'maxcdn', 'url' => ['/debug'],],
                         ],
                     ],
-                    ['label' => '联系我们', 'icon' => 'cloud', 'url' => ['/gii'],],
+                    ['label' => '联系我们', 'icon' => 'cloud', 'url' => ['/contact'],],
                 ],
             ]
         ) ?>
