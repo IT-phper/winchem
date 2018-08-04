@@ -89,12 +89,16 @@
                         'icon' => 'map',
                         'url' => '#',
                         'items' => [
-                            ['label' => '产品种类', 'icon' => 'cloud', 'url' => ['/class'],],
-                            ['label' => '洗碗机', 'icon' => 'cloud', 'url' => ['/gii'],],
-                            ['label' => 'S6/S7分配器', 'icon' => 'maxcdn', 'url' => ['/debug'],],
-                            ['label' => '客房类清洁剂', 'icon' => 'maxcdn', 'url' => ['/debug'],],
-                            ['label' => '洗衣类清洁剂', 'icon' => 'maxcdn', 'url' => ['/debug'],],
-                            ['label' => '餐饮类清洁剂', 'icon' => 'maxcdn', 'url' => ['/debug'],],
+                            [
+                                'label' => '产品种类',
+                                'icon' => 'circle-o',
+                                'url' => '#',
+                                'items' => [
+                                    ['label' => '清洁剂产品', 'icon' => 'cloud', 'url' => ['/classes'],],
+                                    ['label' => '设备产品', 'icon' => 'cloud', 'url' => ['/classes2'],],
+                                ],
+                            ],
+                            ['label' => '产品信息', 'icon' => 'cloud', 'url' => ['/product'],],
                         ],
                     ],
                     [

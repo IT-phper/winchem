@@ -9,8 +9,12 @@ use yii\helpers\ArrayHelper;
 use app\models\Picture;
 use app\models\Contact;
 use app\models\Articles;
+use app\models\Classes;
+use app\models\Product;
 
 /*
+ * 接口： 域名 都是http://admin.suzengguang.top  建议先存一个变量，后面肯定会改成别人的域名
+ * 
  *  企业简介
  *  /api/company-index
  *  返回参数 picture 宣传图  chinese 中文文字  english 英文文字
@@ -54,6 +58,17 @@ use app\models\Articles;
  * 企业动态或者行业资讯的详情
  * /api/articles-detail
  * 传入参数 id id在接口/api/information与/api/trends中有返回数据，可以获取到
+ * 
+ * 清洁类产品类别
+ * /api/classes
+ * 
+ * 设备产品类别
+ * /api/classes2
+ * 
+ * 获取某一类别下的对应产品
+ * /api/product?class_id=2
+ * 
+ * 
  */
 
 class ApiController extends Controller
@@ -173,6 +188,26 @@ class ApiController extends Controller
         $request = Yii::$app->request;
         $id = $request->get('id',1);
         $data = Articles::detail($id);
+        return $this->ajaxMessage(0, 'success',$data);
+    }
+    
+    //清洁剂产品类别
+    public function actionClasses(){
+        $data = Classes::getClasses();
+        return $this->ajaxMessage(0, 'success',$data);
+    }
+    
+    //设备产品
+    public function actionClasses2(){
+        $data = Classes::getClasses2();
+        return $this->ajaxMessage(0, 'success',$data);
+    }
+    
+    //获取某一类别下的对应产品
+    public function actionProduct(){
+        $request = Yii::$app->request;
+        $class_id = $request->get('class_id',1);
+        $data = Product::getProductByClassId($class_id);
         return $this->ajaxMessage(0, 'success',$data);
     }
 }
