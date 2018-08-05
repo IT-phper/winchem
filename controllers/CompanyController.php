@@ -52,7 +52,7 @@ class CompanyController extends BaseController
             $model->save();
         }
         
-        return $this->render('Pattern',[
+        return $this->render('pattern',[
             'model' => $model,
         ]);
     }
