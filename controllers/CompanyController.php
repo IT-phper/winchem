@@ -6,6 +6,7 @@ use Yii;
 use app\models\CompanyIndex;
 use app\models\CompanyPhylogeny;
 use app\models\CompanyIdea;
+use app\models\CompanyPattern;
 use yii\web\UploadedFile;
 
 class CompanyController extends BaseController
@@ -42,6 +43,22 @@ class CompanyController extends BaseController
             'model' => $model,
         ]);
     }
+    
+    //公司业务模式
+    public function actionPattern(){
+        $model = new CompanyPattern();
+        
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->save();
+        }
+        
+        return $this->render('Pattern',[
+            'model' => $model,
+        ]);
+    }
+    
+    
+    
     
     //经营理念
     public function actionIdea(){

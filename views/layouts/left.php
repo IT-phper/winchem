@@ -101,16 +101,7 @@
                             ['label' => '产品信息', 'icon' => 'cloud', 'url' => ['/product'],],
                         ],
                     ],
-                    [
-                        'label' => '业务模式',
-                        'icon' => 'map',
-                        'url' => '#',
-                        'items' => [
-                            ['label' => '租赁模式', 'icon' => 'cloud', 'url' => ['/gii'],],
-                            ['label' => '服务模式', 'icon' => 'maxcdn', 'url' => ['/debug'],],
-                            ['label' => '自动物流', 'icon' => 'maxcdn', 'url' => ['/debug'],],
-                        ],
-                    ],
+                    ['label' => '业务模式', 'icon' => 'cloud', 'url' => ['/company/pattern'],],
                     [
                         'label' => '项目案例',
                         'icon' => 'map',

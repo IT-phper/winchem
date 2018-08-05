@@ -59,6 +59,9 @@ use app\models\Product;
  * /api/articles-detail
  * 传入参数 id id在接口/api/information与/api/trends中有返回数据，可以获取到
  * 
+ * 
+ * 产品系列模块接口
+ * 
  * 清洁类产品类别
  * /api/classes
  * 
@@ -66,8 +69,21 @@ use app\models\Product;
  * /api/classes2
  * 
  * 获取某一类别下的对应产品
- * /api/product?class_id=2
+ * /api/product
+ * 传入参数 class_id  class_id对应在接口/api/classes与/api/classes2返回数据的id
+ * eg:/api/product?class_id=2
  * 
+ * 
+ * 业务模式模块接口
+ * 
+ * 租赁模式
+ * /api/company-rent
+ * 
+ * 服务模式
+ * /api/company-service
+ * 
+ * 自动物流
+ * /api/company-logistics
  * 
  */
 
@@ -209,6 +225,30 @@ class ApiController extends Controller
         $class_id = $request->get('class_id',1);
         $data = Product::getProductByClassId($class_id);
         return $this->ajaxMessage(0, 'success',$data);
+    }
+    
+    //租赁模式
+    public function actionCompanyRent(){
+        $settings = Yii::$app->settings;
+        return $this->ajaxMessage(0, 'success', [
+            'rent' => str_replace('<img src="','<img src="'.Yii::$app->request->hostInfo,$settings->get('Companyphy.rent')),
+        ]);
+    }
+    
+    //服务模式
+    public function actionCompanyService(){
+        $settings = Yii::$app->settings;
+        return $this->ajaxMessage(0, 'success', [
+            'service' => str_replace('<img src="','<img src="'.Yii::$app->request->hostInfo,$settings->get('Companyphy.service')),
+        ]);
+    }
+    
+    //自动物流
+    public function actionCompanyLogistics(){
+        $settings = Yii::$app->settings;
+        return $this->ajaxMessage(0, 'success', [
+            'logistics' => str_replace('<img src="','<img src="'.Yii::$app->request->hostInfo,$settings->get('Companyphy.logistics')),
+        ]);
     }
 }
 
