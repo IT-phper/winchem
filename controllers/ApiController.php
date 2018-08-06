@@ -173,6 +173,10 @@ class ApiController extends Controller
         $request = Yii::$app->request;
         $subtype = $request->get('subtype',1);
         $data = Picture::honor1($subtype);
+        $suffix = Yii::$app->request->hostInfo . '/uploads/';
+        foreach($data as &$v){
+            $v['picture'] = $suffix . $v['picture'];
+        }
         return $this->ajaxMessage(0, 'success',$data);
     }
     
