@@ -93,8 +93,15 @@ class PictureController extends BaseController
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $file = UploadedFile::getInstance($model,'file');
+            if ($file) {
+                $model->picture = date('Y-m-d') . '-' .uniqid() . '.' . $file->extension;  
+                $file->saveAs('uploads/' . $model->picture);
+            }
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
 
         return $this->render('update', [

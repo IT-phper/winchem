@@ -96,8 +96,17 @@ class ArticlesController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-//            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+//            $model->created = date('Y-m-d H:i:s');
+            $file = UploadedFile::getInstance($model,'file');
+            if ($file) {
+                $model->img = date('Y-m-d') . '-' .uniqid() . '.' . $file->extension;  
+                $file->saveAs('uploads/' . $model->img);
+            }
+            
+            if ($model->save()) {
+                return $this->redirect(['index']);
+            }
         }
 
         return $this->render('update', [
