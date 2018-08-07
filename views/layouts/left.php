@@ -65,8 +65,8 @@
                         'icon' => 'map',
                         'url' => '#',
                         'items' => [
-                            ['label' => '万恩云', 'icon' => 'cloud', 'url' => ['/gii'],],
-                            ['label' => '租赁模式', 'icon' => 'maxcdn', 'url' => ['/debug'],],
+                            ['label' => '轮播图', 'icon' => 'cloud', 'url' => ['/sowing'],],
+                            ['label' => '关于我们', 'icon' => 'maxcdn', 'url' => ['/company/about'],],
                             ['label' => '产品', 'icon' => 'cubes', 'url' => ['/debug'],],
                             ['label' => '项目推介', 'icon' => 'hand-o-right', 'url' => ['/debug'],],
                             ['label' => '大事件', 'icon' => 'exclamation', 'url' => ['/debug'],],

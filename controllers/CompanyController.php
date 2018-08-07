@@ -7,6 +7,7 @@ use app\models\CompanyIndex;
 use app\models\CompanyPhylogeny;
 use app\models\CompanyIdea;
 use app\models\CompanyPattern;
+use app\models\CompanyAbout;
 use yii\web\UploadedFile;
 
 class CompanyController extends BaseController
@@ -27,6 +28,20 @@ class CompanyController extends BaseController
         }
         
         return $this->render('index',[
+            'model' => $model,
+        ]);
+    }
+    
+    //关于我们
+    public function actionAbout(){
+         $model = new CompanyAbout();
+        
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            
+            $model->save();
+        }
+        
+        return $this->render('about',[
             'model' => $model,
         ]);
     }

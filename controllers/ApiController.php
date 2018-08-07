@@ -15,6 +15,16 @@ use app\models\Product;
 /*
  * 接口： 域名 都是http://admin.suzengguang.top  建议先存一个变量，后面肯定会改成别人的域名
  * 
+ * 首页模块
+ * 
+ * 轮播图
+ * /api/sowing
+ * 
+ * 关于我们
+ * /api/company-about
+ * 
+ * 
+ * 
  *  企业简介
  *  /api/company-index
  *  返回参数 picture 宣传图  chinese 中文文字  english 英文文字
@@ -131,6 +141,14 @@ class ApiController extends Controller
         ]);
     }
     
+    public function actionCompanyAbout(){
+        $settings = Yii::$app->settings;
+        return $this->ajaxMessage(0, 'success', [
+            'chinese' => $settings->get('CompanyAbout.chinese'),
+            'english' => $settings->get('CompanyAbout.english')
+        ]);
+    }
+    
     public function actionCompanyPhylogeny(){
         $settings = Yii::$app->settings;
         return $this->ajaxMessage(0, 'success', [
@@ -156,6 +174,16 @@ class ApiController extends Controller
             'idea2' => $settings->get('CompanyIdea.idea2'),
             'idea3' => $settings->get('CompanyIdea.idea3'),
         ]);
+    }
+    
+    //轮播图
+    public function actionSowing(){
+        $data = Picture::sowing();
+        $suffix = Yii::$app->request->hostInfo . '/uploads/';
+        foreach($data as &$v) {
+            $v['picture'] = $suffix . $v['picture'];
+        }
+        return $this->ajaxMessage(0, 'success',$data);
     }
     
     //公司荣耀

@@ -12,7 +12,7 @@ use yii\web\UploadedFile;
 /**
  * PictureController implements the CRUD actions for Picture model.
  */
-class PictureController extends BaseController
+class SowingController extends BaseController
 {
     /**
      * {@inheritdoc}
@@ -36,7 +36,7 @@ class PictureController extends BaseController
     public function actionIndex()
     {
         $searchModel = new PictureSearch();
-        $searchModel->type = 1;
+        $searchModel->type = 2;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [

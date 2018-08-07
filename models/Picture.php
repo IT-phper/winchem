@@ -32,7 +32,7 @@ class Picture extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['type', 'sub_type'], 'required'],
+            [['type'], 'required'],
             [['order', 'type', 'sub_type'], 'integer'],
             [['picture'], 'string', 'max' => 120],
             [['name'], 'string', 'max' => 30],
@@ -47,7 +47,7 @@ class Picture extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'picture' => '图片路径',
+            'picture' => '图片',
             'name' => '标题',
             'order' => '排序（小的显示在前面）',
             'type' => '类型',
@@ -57,14 +57,18 @@ class Picture extends \yii\db\ActiveRecord
     }
     
     public static function honor(){
-        $data[] = self::find()->select(['picture','name','sub_type'])->where(['sub_type' => 1])->orderBy('order Asc')->asArray()->one();
-        $data[] = self::find()->select(['picture','name','sub_type'])->where(['sub_type' => 2])->orderBy('order Asc')->asArray()->one();
-        $data[] = self::find()->select(['picture','name','sub_type'])->where(['sub_type' => 3])->orderBy('order Asc')->asArray()->one();
+        $data[] = self::find()->select(['picture','name','sub_type'])->where(['type'=>1,'sub_type' => 1])->orderBy('order Asc')->asArray()->one();
+        $data[] = self::find()->select(['picture','name','sub_type'])->where(['type'=>1,'sub_type' => 2])->orderBy('order Asc')->asArray()->one();
+        $data[] = self::find()->select(['picture','name','sub_type'])->where(['type'=>1,'sub_type' => 3])->orderBy('order Asc')->asArray()->one();
         return $data;
     }
     
     public static function honor1($sub_type){
-        return self::find()->select(['picture','name','sub_type'])->where(['sub_type' => $sub_type])->orderBy('order Asc')->asArray()->all();
+        return self::find()->select(['picture','name','sub_type'])->where(['type'=>1,'sub_type' => $sub_type])->orderBy('order Asc')->asArray()->all();
 
+    }
+    
+    public static function sowing(){
+        return self::find()->select(['picture','name'])->where(['type' => 2])->orderBy('order asc')->asArray()->all();
     }
 }
