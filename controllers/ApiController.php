@@ -23,7 +23,14 @@ use app\models\Product;
  * 关于我们
  * /api/company-about
  * 
+ * 首页新闻动态
+ * /api/news
  * 
+ * 首页新闻轮播图
+ * /api/news-sowing
+ * 
+ * 注释：新闻动态和新闻轮播图返回数据中的ID，作为接口/api/articles-detail的传入参数，可以获取该条新闻的详情信息
+ *
  * 
  *  企业简介
  *  /api/company-index
@@ -212,6 +219,20 @@ class ApiController extends Controller
     public function actionContact(){
         return $this->ajaxMessage(0, 'success', Contact::data());
     }
+    
+    //新闻动态
+    public function actionNews(){
+        $data = Articles::news();
+        return $this->ajaxMessage(0, 'success',$data);
+    }
+    
+    //新闻轮播图
+    public function actionNewsSowing(){
+        $data = Articles::sowing();
+        return $this->ajaxMessage(0, 'success',$data);
+    }
+    
+  
     
     //企业动态
     public function actionTrends(){

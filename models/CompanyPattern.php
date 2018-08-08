@@ -20,9 +20,9 @@ class CompanyPattern extends Model
     public function init() {
         parent::init();
         $settings = Yii::$app->settings;
-        $this->rent = $settings->get('Company.rent');
-        $this->service = $settings->get('Company.service');
-        $this->logistics = $settings->get('Company.logistics');
+        $this->rent = $settings->get('Companyphy.rent');
+        $this->service = $settings->get('Companyphy.service');
+        $this->logistics = $settings->get('Companyphy.logistics');
     }
 
     /**

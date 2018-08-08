@@ -92,4 +92,19 @@ class Articles extends \yii\db\ActiveRecord
         $data['content'] = str_replace('<img src="','<img src="'.Yii::$app->request->hostInfo,$data['content']);
         return $data;
     }
+    
+    public static function news(){
+        $data = self::find()->select(['id','title','created','summary'])->orderBy('created desc')->limit(4)->asArray()->all();
+        return $data;
+    }
+    
+    public static function sowing(){
+        $data = self::find()->select(['id','title','img'])->orderBy('created desc')->limit(4)->asArray()->all();
+        foreach($data as &$v){
+            if($v['img']){
+                $v['img'] = Yii::$app->request->hostInfo . '/uploads/'.$v['img'];
+            }
+        }
+        return $data;
+    }
 }
