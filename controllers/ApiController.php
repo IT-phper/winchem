@@ -187,7 +187,7 @@ class ApiController extends Controller
     public function actionCompanyPhylogeny(){
         $settings = Yii::$app->settings;
         return $this->ajaxMessage(0, 'success', [
-            'phylogeny' => $settings->get('Companyphylogeny.index'),
+            'phylogeny' => Yii::$app->request->hostInfo . '/uploads/' .$settings->get('Companyphylogeny.index'),
         ]);
     }
     
