@@ -102,15 +102,7 @@
                         ],
                     ],
                     ['label' => '业务模式', 'icon' => 'cloud', 'url' => ['/company/pattern'],],
-                    [
-                        'label' => '项目案例',
-                        'icon' => 'map',
-                        'url' => '#',
-                        'items' => [
-                            ['label' => '社会化合作项目', 'icon' => 'cloud', 'url' => ['/gii'],],
-                            ['label' => '经典案例', 'icon' => 'maxcdn', 'url' => ['/debug'],],
-                        ],
-                    ],
+                    ['label' => '项目案例', 'icon' => 'cloud', 'url' => ['/project'],],
                     ['label' => '联系我们', 'icon' => 'cloud', 'url' => ['/contact'],],
                 ],
             ]

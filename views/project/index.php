@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\ArticlesSearch */
+/* @var $searchModel app\models\ProjectSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '新闻动态';
+$this->title = '项目案例';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="articles-index">
+<div class="Project-index">
 
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -32,12 +32,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function($m) {
                     switch ($m->column) {
                         case 1:
-                            return '企业动态';
+                            return '社会化合作项目';
                         case 2:
-                            return '行业资讯';
+                            return '经典案例';
                     }
                 },
-                'filter' => [1=>'企业动态',2=>'行业资讯'],
+                'filter' => [1=>'社会化合作项目',2=>'经典案例'],
             ],
 //            'img',
             [

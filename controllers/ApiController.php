@@ -11,6 +11,7 @@ use app\models\Contact;
 use app\models\Articles;
 use app\models\Classes;
 use app\models\Product;
+use app\models\Project;
 
 /*
  * 接口： 域名 都是http://admin.suzengguang.top  建议先存一个变量，后面肯定会改成别人的域名
@@ -30,7 +31,16 @@ use app\models\Product;
  * /api/news-sowing
  * 
  * 注释：新闻动态和新闻轮播图返回数据中的ID，作为接口/api/articles-detail的传入参数，可以获取该条新闻的详情信息
+ * 
+ * 
+ * 首页项目案例
+ * /api/project-case
+ * 
+ * 首页项目案例轮播图
+ * /api/project-sowing
  *
+ * 注释：项目案例和项目案例轮播图返回数据中的ID，作为接口/api/project-detail的传入参数，可以获取该条项目案例的详情信息
+ * 
  * 
  *  企业简介
  *  /api/company-index
@@ -58,6 +68,24 @@ use app\models\Product;
  * 联系我们
  *  /api/contact
  * 返回数据  initial 首字母 zx的代表是直辖市
+ * 
+ * 项目案例模块
+ * 
+ * 社会化合作项目
+ * /api/society
+ * 传入参数  page  页码
+ * 返回数据
+ * page 页码  data该页码的数据  total 总页码
+ * 
+ * 经典案例
+ * /api/case
+ * 传入参数  page  页码
+ * 返回数据
+ * page 页码  data该页码的数据  total 总页码
+ * 
+ * 社会化合作项目或者经典案例的详情
+ * /api/project-detail
+ * 传入参数 id id在接口/api/society与/api/case中有返回数据，可以获取到
  * 
  * 企业动态
  * /api/trends
@@ -232,14 +260,33 @@ class ApiController extends Controller
         return $this->ajaxMessage(0, 'success',$data);
     }
     
-  
+    //项目案例
+    public function actionProjectCase(){
+        $data = Project::news();
+        return $this->ajaxMessage(0, 'success',$data);    
+    }
     
+    public function actionProjectSowing(){
+        $data = Project::sowing();
+        return $this->ajaxMessage(0, 'success',$data);  
+    }
+    
+  
     //企业动态
     public function actionTrends(){
         $request = Yii::$app->request;
         $page = $request->get('page',1);
         $limit = 5;
         $data = Articles::Trends($page,$limit);
+        return $this->ajaxMessage(0, 'success',$data);
+    }
+    
+    //社会化项目
+    public function actionSociety(){
+        $request = Yii::$app->request;
+        $page = $request->get('page',1);
+        $limit = 5;
+        $data = Project::Trends($page,$limit);
         return $this->ajaxMessage(0, 'success',$data);
     }
     
@@ -252,12 +299,28 @@ class ApiController extends Controller
         return $this->ajaxMessage(0, 'success',$data);
     }
     
+    //经典案例
+    public function actionCase(){
+        $request = Yii::$app->request;
+        $page = $request->get('page',1);
+        $limit = 5;
+        $data = Project::Information($page,$limit);
+        return $this->ajaxMessage(0, 'success',$data);       
+    }
+    
     //获取企业动态或者行业资讯的文章详细
     public function actionArticlesDetail(){   
         $request = Yii::$app->request;
         $id = $request->get('id',1);
         $data = Articles::detail($id);
         return $this->ajaxMessage(0, 'success',$data);
+    }
+    
+    public function actionProjectDetail(){
+        $request = Yii::$app->request;
+        $id = $request->get('id',1);
+        $data = Project::detail($id);
+        return $this->ajaxMessage(0, 'success',$data);        
     }
     
     //清洁剂产品类别
