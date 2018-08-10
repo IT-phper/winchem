@@ -63,7 +63,7 @@ use app\models\Project;
  * eg: /api/company-honor-from-subtype?subtype=2
  * 
  * 经营理念
- *  /api/company-idea
+ *  /api/company-ideal
  * 
  * 联系我们
  *  /api/contact
@@ -198,16 +198,23 @@ class ApiController extends Controller
         ]);
     }
     
-    public function actionCompanyIdea(){
+//    public function actionCompanyIdea(){
+//        $settings = Yii::$app->settings;
+//        $suffix = Yii::$app->request->hostInfo . '/uploads/';
+//        return $this->ajaxMessage(0, 'success', [
+//            'picture1' => $suffix .$settings->get('CompanyIdea.picture1'),
+//            'picture2' => $suffix .$settings->get('CompanyIdea.picture2'),
+//            'picture3' => $suffix .$settings->get('CompanyIdea.picture3'),
+//            'idea1' => $settings->get('CompanyIdea.idea1'),
+//            'idea2' => $settings->get('CompanyIdea.idea2'),
+//            'idea3' => $settings->get('CompanyIdea.idea3'),
+//        ]);
+//    }
+    public function actionCompanyIdeal(){
         $settings = Yii::$app->settings;
-        $suffix = Yii::$app->request->hostInfo . '/uploads/';
+//        $suffix = Yii::$app->request->hostInfo . '/uploads/';
         return $this->ajaxMessage(0, 'success', [
-            'picture1' => $suffix .$settings->get('CompanyIdea.picture1'),
-            'picture2' => $suffix .$settings->get('CompanyIdea.picture2'),
-            'picture3' => $suffix .$settings->get('CompanyIdea.picture3'),
-            'idea1' => $settings->get('CompanyIdea.idea1'),
-            'idea2' => $settings->get('CompanyIdea.idea2'),
-            'idea3' => $settings->get('CompanyIdea.idea3'),
+            'ideal' => str_replace('<img src="','<img src="'.Yii::$app->request->hostInfo,$settings->get('Companyphy.ideal')),
         ]);
     }
     

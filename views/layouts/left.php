@@ -80,7 +80,7 @@
                             ['label' => '公司简介', 'icon' => 'cloud', 'url' => ['/company/index'],],
                             ['label' => '发展史和文化', 'icon' => 'maxcdn', 'url' => ['/company/phylogeny'],],
                             ['label' => '公司荣誉', 'icon' => 'hand-o-right', 'url' => ['/picture'],],
-                            ['label' => '经营理念', 'icon' => 'exclamation', 'url' => ['/company/idea'],],
+                            ['label' => '经营理念', 'icon' => 'exclamation', 'url' => ['/company/ideal'],],
                         ],
                     ],
                     ['label' => '新闻动态', 'icon' => 'cloud', 'url' => ['/articles'],],

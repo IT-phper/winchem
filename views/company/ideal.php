@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-$this->title = '公司发展史和文化';
+$this->title = '经营理念';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -15,8 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::submitButton('确定', ['class' => 'btn btn-primary']) ?>
     </div>
 
-    <?= $form->field($model, 'phylogeny')->widget(\yii\redactor\widgets\Redactor::className()) ?>
-    <?= $form->field($model, 'culture')->widget(\yii\redactor\widgets\Redactor::className()) ?>
+    <?= $form->field($model, 'ideal')->widget(\yii\redactor\widgets\Redactor::className()) ?>
 
     <div class="form-group">
         <?= Html::submitButton('确定', ['class' => 'btn btn-primary']) ?>
