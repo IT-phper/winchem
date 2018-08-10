@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\CompanyIndex;
 use app\models\CompanyPhylogeny;
+use app\models\CompanyCultrue;
 //use app\models\CompanyIdea;
 use app\models\CompanyIdeal;
 use app\models\CompanyPattern;
@@ -47,7 +48,7 @@ class CompanyController extends BaseController
         ]);
     }
     
-    //发展史和公司文化
+    //发展史
     public function actionPhylogeny(){
         $model = new CompanyPhylogeny();
         
@@ -56,6 +57,19 @@ class CompanyController extends BaseController
         }
         
         return $this->render('phylogeny',[
+            'model' => $model,
+        ]);
+    }
+    
+    //公司文化
+    public function actionCultrue(){
+        $model = new CompanyCultrue();
+        
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->save();
+        }
+        
+        return $this->render('culture',[
             'model' => $model,
         ]);
     }

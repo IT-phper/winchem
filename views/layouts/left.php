@@ -31,35 +31,7 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'Winchem Menu', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-                    [
-                        'label' => 'Some tools',
-                        'icon' => 'share',
-                        'url' => '#',
-                        'items' => [
-                            ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
-                            ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
                     [
                         'label' => '主页',
                         'icon' => 'map',
@@ -67,9 +39,6 @@
                         'items' => [
                             ['label' => '轮播图', 'icon' => 'cloud', 'url' => ['/sowing'],],
                             ['label' => '关于我们', 'icon' => 'maxcdn', 'url' => ['/company/about'],],
-                            ['label' => '产品', 'icon' => 'cubes', 'url' => ['/debug'],],
-                            ['label' => '项目推介', 'icon' => 'hand-o-right', 'url' => ['/debug'],],
-                            ['label' => '大事件', 'icon' => 'exclamation', 'url' => ['/debug'],],
                         ],
                     ],
                     [
@@ -78,7 +47,8 @@
                         'url' => '#',
                         'items' => [
                             ['label' => '公司简介', 'icon' => 'cloud', 'url' => ['/company/index'],],
-                            ['label' => '发展史和文化', 'icon' => 'maxcdn', 'url' => ['/company/phylogeny'],],
+                            ['label' => '发展史', 'icon' => 'cloud', 'url' => ['/company/phylogeny'],],
+                            ['label' => '公司文化', 'icon' => 'maxcdn', 'url' => ['/company/cultrue'],],
                             ['label' => '公司荣誉', 'icon' => 'hand-o-right', 'url' => ['/picture'],],
                             ['label' => '经营理念', 'icon' => 'exclamation', 'url' => ['/company/ideal'],],
                         ],

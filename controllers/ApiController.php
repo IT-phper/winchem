@@ -50,7 +50,11 @@ use app\models\Project;
  *  /api/company-phylogeny
  * 
  * 公司文化
+ * 
+ * 企业文化
  *  /api/company-culture
+ * 人才理念
+ * /api/company-concept
  * 
  * 公司荣誉
  *  /api/company-honor
@@ -194,8 +198,15 @@ class ApiController extends Controller
     public function actionCompanyCulture(){
         $settings = Yii::$app->settings;
         return $this->ajaxMessage(0, 'success', [
-            'phylogeny' => $settings->get('Companyphylogeny.culture'),
+            'culture' => str_replace('<img src="','<img src="'.Yii::$app->request->hostInfo,$settings->get('CompanyCulture.index')),
         ]);
+    }
+    
+    public function actionCompanyConcept(){
+        $settings = Yii::$app->settings;
+        return $this->ajaxMessage(0, 'success', [
+            'concept' => str_replace('<img src="','<img src="'.Yii::$app->request->hostInfo,$settings->get('CompanyCulture.culture')),
+        ]); 
     }
     
 //    public function actionCompanyIdea(){
