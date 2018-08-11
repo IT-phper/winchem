@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Articles */
+/* @var $model app\models\Mode */
 
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
+$this->title = $model->name;
+$this->params['breadcrumbs'][] = ['label' => '业务模式', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="articles-view">
+<div class="mode-view">
 
     <p>
         <?= Html::a('修改', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -27,22 +27,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'title',
-            [
-                'attribute' => 'column',
-                'value' => function ($model) {
-                    switch ($model->column) {
-                        case 1:
-                            return '企业动态';
-                        case 2:
-                            return '行业资讯';
-                    }
-                }
-            ],
-            'img',
+            'name',
+//            'content:ntext',
             'order',
-            'content:ntext',
-            'created',
         ],
     ]) ?>
 

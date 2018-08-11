@@ -4,31 +4,18 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Articles */
+/* @var $model app\models\Mode */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="articles-form">
+<div class="mode-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-    <?= $form->field($model, 'column')->dropDownList(['1' => '企业动态', '2' => '行业资讯'], ['style' => 'width:180px']) ?>
-
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'summary')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'file')->fileInput()->label('图片：建议500px*360px') ?>
-    
-    <?php 
-        if ($model->img) {
-            echo Html::img("/uploads/{$model->img}", ['width' => 100]);
-        } 
-    ?>
-
-    <?= $form->field($model, 'order')->textInput() ?>
+    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'content')->widget(\yii\redactor\widgets\Redactor::className(),
-            [
+        [
             'clientOptions' => [
                 'imageManagerJson' => ['/redactor/upload/image-json'],
                 'imageUpload' => ['/redactor/upload/image'],
@@ -38,6 +25,8 @@ use yii\widgets\ActiveForm;
             ]
         ] 
     ) ?>
+
+    <?= $form->field($model, 'order')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('保存', ['class' => 'btn btn-success']) ?>

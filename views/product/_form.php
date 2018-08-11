@@ -17,7 +17,7 @@ use app\models\Classes;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'file')->fileInput() ?>
+    <?= $form->field($model, 'file')->fileInput()->label('图片：建议250px*180px') ?>
     <?php 
         if ($model->img) {
             echo Html::img("/uploads/{$model->img}", ['width' => 300]);

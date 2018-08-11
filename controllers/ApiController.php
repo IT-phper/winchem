@@ -12,6 +12,7 @@ use app\models\Articles;
 use app\models\Classes;
 use app\models\Product;
 use app\models\Project;
+use app\models\Mode;
 
 /*
  * 接口： 域名 都是http://admin.suzengguang.top  建议先存一个变量，后面肯定会改成别人的域名
@@ -133,6 +134,9 @@ use app\models\Project;
  * 
  * 自动物流
  * /api/company-logistics
+ * 
+ * /api/mode
+ * 获取业务模式类别
  * 
  */
 
@@ -383,6 +387,12 @@ class ApiController extends Controller
         return $this->ajaxMessage(0, 'success', [
             'logistics' => str_replace('<img src="','<img src="'.Yii::$app->request->hostInfo,$settings->get('Companyphy.logistics')),
         ]);
+    }
+    
+    //业务模式
+    public function actionMode(){
+        $data = Mode::getmode();
+        return $this->ajaxMessage(0, 'success',$data); 
     }
 }
 
