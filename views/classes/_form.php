@@ -17,12 +17,11 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'file')->fileInput() ?>
     <?php 
         if ($model->img) {
-            echo Html::img("/uploads/{$model->img}", ['width' => 100]);
+            echo Html::img("/uploads/{$model->img}", ['width' => 300]);
         } 
     ?>
     
-
-    <?= $form->field($model, 'summary')->textarea() ?>
+    <?= $form->field($model, 'summary')->widget(\yii\redactor\widgets\Redactor::className()) ?>
 
     <?= $form->field($model, 'order')->textInput() ?>
 
