@@ -33,7 +33,7 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'summary', 'order', 'class_id'], 'required'],
-            [['order', 'class_id'], 'integer'],
+            [['order', 'class_id'], 'integer','min' => 1],
             [['name', 'img'], 'string', 'max' => 60],
             [['summary'], 'string', 'max' => 255],
             [['file'], 'file', 'extensions' => ['png', 'jpg', 'gif'], 'maxSize' => 1024*1024*1024],
