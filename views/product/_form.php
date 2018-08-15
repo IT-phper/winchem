@@ -24,7 +24,7 @@ use app\models\Classes;
         } 
     ?>
     
-    <?= $form->field($model, 'summary')->textarea() ?>
+    <?= $form->field($model, 'summary')->widget(\yii\redactor\widgets\Redactor::className()) ?>
 
     <?= $form->field($model, 'order')->textInput() ?>
 
