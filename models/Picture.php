@@ -33,6 +33,7 @@ class Picture extends \yii\db\ActiveRecord
     {
         return [
             [['type'], 'required'],
+            [['order'], 'default', 'value' => 0],
             [['order', 'type', 'sub_type'], 'integer'],
             [['picture'], 'string', 'max' => 120],
             [['name'], 'string', 'max' => 30],
