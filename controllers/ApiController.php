@@ -325,7 +325,7 @@ class ApiController extends Controller
     public function actionCase(){
         $request = Yii::$app->request;
         $page = $request->get('page',1);
-        $limit = 5;
+        $limit = 9;
         $data = Project::Information($page,$limit);
         return $this->ajaxMessage(0, 'success',$data);       
     }
