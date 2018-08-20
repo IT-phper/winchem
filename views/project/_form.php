@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'column')->dropDownList(['1' => '社会化合作项目', '2' => '经典案例'], ['style' => 'width:180px']) ?>
+    <?= $form->field($model, 'column')->dropDownList(['2' => '经典案例','1' => '社会化合作项目'], ['style' => 'width:180px']) ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'summary')->textInput(['maxlength' => true]) ?>
