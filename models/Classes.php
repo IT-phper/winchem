@@ -35,7 +35,6 @@ class Classes extends \yii\db\ActiveRecord
             [['name', 'summary', 'order', 'type'], 'required'],
             [['order', 'type'], 'integer'],
             [['name', 'img'], 'string', 'max' => 60],
-            [['summary'], 'string', 'max' => 255],
             [['file'], 'file', 'extensions' => ['png', 'jpg', 'gif'], 'maxSize' => 1024*1024*1024],
         ];
     }
