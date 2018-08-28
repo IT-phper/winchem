@@ -33,7 +33,7 @@ class Articles extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'content','summary'], 'required'],
+            [['title', 'content','summary','order'], 'required'],
             [['column', 'order'], 'integer'],
             [['content'], 'string'],
             [['created'], 'safe'],
