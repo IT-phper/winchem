@@ -27,7 +27,6 @@
                     <label class="control-label col-md-3" for="administrators-new-pwd">密码</label>
                     <div class="col-md-6">
                         <input type="password" id="administrators-new-pwd" class="form-control" placeholder="" name="AdminUsers[password]">
-                        <span class="pull-left">密码至少16位，且包含一个数字、一个大写字母、一个小写字母和一个英文半角符号</span>
                         <span class="text-danger">密码不符合规则，请重新输入</span>
                     </div>
                 </div>
