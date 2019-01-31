@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $content string */
 
 
-if (Yii::$app->controller->id === 'login') { 
+if (Yii::$app->controller->id == 'login' && Yii::$app->controller->action->id !== 'password') { 
 /**
  * Do not use this code in your template. Remove it. 
  * Instead, use the code  $this->layout = '//main-login'; in your controller.

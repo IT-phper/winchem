@@ -1,61 +1,49 @@
-<?php
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
 
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \common\models\LoginForm */
+    <title>Login</title>
 
-$this->title = '登录';
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/style-responsive.css" rel="stylesheet">
+</head>
 
-$fieldOptions1 = [
-    'options' => ['class' => 'form-group has-feedback'],
-    'inputTemplate' => "{input}<span class='glyphicon glyphicon-envelope form-control-feedback'></span>"
-];
+<body class="login-body">
 
-$fieldOptions2 = [
-    'options' => ['class' => 'form-group has-feedback'],
-    'inputTemplate' => "{input}<span class='glyphicon glyphicon-lock form-control-feedback'></span>"
-];
-?>
+<div class="container">
 
-<div class="login-box">
-    <div class="login-logo">
-        <a href="#"><b>winchem</b>后台管理系统</a>
-    </div>
-    <!-- /.login-logo -->
-    <div class="login-box-body">
-        <!--<p class="login-box-msg">Sign in to start your session</p>-->
-
-        <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => false]); ?>
-
-        <?= $form
-            ->field($model, 'username', $fieldOptions1)
-            ->label(false)
-            ->textInput(['placeholder' => $model->getAttributeLabel('username')]) ?>
-
-        <?= $form
-            ->field($model, 'password', $fieldOptions2)
-            ->label(false)
-            ->passwordInput(['placeholder' => $model->getAttributeLabel('password')]) ?>
-
-        <div class="row">
-            <div class="col-xs-8">
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-            </div>
-            <!-- /.col -->
-            <div class="col-xs-4">
-                <?= Html::submitButton('登录', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button']) ?>
-            </div>
-            <!-- /.col -->
+    <form class="form-signin" method="post">
+        <input type="hidden" name="_csrf" value="<?= \Yii::$app->getRequest()->getCsrfToken();?>">
+        <div class="form-signin-heading text-center">
+            <h1 class="sign-title">中万恩后台登录</h1>
+            <img src="/images/login-logo.png" alt=""/>
         </div>
+        <div class="login-wrap">
+            <input name="username" type="text" class="form-control" placeholder="管理员账号" autofocus>
+            <input name="password" type="password" class="form-control" placeholder="密码">
+            <?= Yii::$app->session->hasFlash('error') ?
+                yii\bootstrap\Alert::widget([
+                    'options' => ['class' => 'alert-danger'],
+                    'body' => Yii::$app->session->getFlash('error'),
+                ]) : '' ;
+            ?> 
+            <button class="btn btn-lg btn-login btn-block" type="submit">
+                <i class="fa fa-check"></i>
+            </button>
+        </div>
+    </form>
+
+</div>
 
 
-        <?php ActiveForm::end(); ?>
+<script src="/js/jquery-1.10.2.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/modernizr.min.js"></script>
 
-<!--        <a href="#">I forgot my password</a><br>
-        <a href="register.html" class="text-center">Register a new membership</a>-->
-
-    </div>
-    <!-- /.login-box-body -->
-</div><!-- /.login-box -->
+</body>
+</html>

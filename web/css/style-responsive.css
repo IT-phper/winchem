@@ -1,0 +1,137 @@
+Skip to content
+ 
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ @IT-phper Sign out
+2
+3 2 IT-phper/furniture
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
+furniture/web/css/ 
+style-responsive.css
+  or cancel
+ Indent mode Indent size Line wrap mode
+1
+/* MEDIA QUERIES */
+2
+​
+3
+@media screen and (max-width: 768px) {
+4
+​
+5
+    body {
+6
+        position: relative;
+7
+    }
+8
+​
+9
+    .left-side {
+10
+        display: none;
+11
+    }
+12
+​
+13
+    .main-content {
+14
+        margin-left: 0;
+15
+        width: 100%;
+16
+    }
+17
+​
+18
+    .left-side-collapsed .left-side {
+19
+        display: none;
+20
+    }
+21
+​
+22
+    .left-side-collapsed .main-content {
+23
+        margin-left: 0;
+24
+    }
+25
+​
+26
+    .left-side-collapsed .header-section {
+27
+        margin-left: 0;
+28
+    }
+29
+​
+30
+    .left-side-show section {
+31
+        overflow-x: hidden;
+32
+    }
+33
+​
+34
+    .left-side-show .left-side {
+35
+        display: block;
+36
+    }
+37
+​
+38
+    .left-side-show .main-content {
+39
+        margin-left: 240px;
+40
+    }
+41
+​
+42
+    .btn-demo {
+43
+        margin-bottom: 20px;
+44
+    }
+45
+​
+46
+    .left-sideinner {
+47
+        padding: 5px 10px;
+48
+    }
+49
+​
+@IT-phper
+Commit changes
+Commit summary 
+Update style-responsive.css
+Optional extended description
+
+Add an optional extended description…
+  Commit directly to the master branch.
+  Create a new branch for this commit and start a pull request. Learn more about pull requests.
+ 
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Press h to open a hovercard with more details.

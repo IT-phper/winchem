@@ -74,6 +74,7 @@
                     ['label' => '业务模式', 'icon' => 'cloud', 'url' => ['/mode'],],
                     ['label' => '项目案例', 'icon' => 'cloud', 'url' => ['/project'],],
                     ['label' => '联系我们', 'icon' => 'cloud', 'url' => ['/contact'],],
+                    ['label' => '修改密码', 'icon' => 'cloud', 'url' => ['/login/password'],],
                 ],
             ]
         ) ?>
